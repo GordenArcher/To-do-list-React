@@ -34,5 +34,7 @@ button {
 }
 
 button:hover {
-  background: #646cff;
+  background: hsl(237, 100%, 50%);
+  color: hsl(0, 0%, 100%);
+  border: none;
 }

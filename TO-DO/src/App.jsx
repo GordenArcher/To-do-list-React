@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import AddedTodo from './component/addedTodo'
 import EmptyImg from './assets/images/empt.jpg'
-import { Slide, ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -13,20 +13,27 @@ function App() {
 
   useEffect(() => {
     const savedTodo = JSON.parse(localStorage.getItem("todoItem")) || []
-    // setAllTodo(savedTodo)
+    setAllTodo(savedTodo)
   }, [])
 
   return (
     <>
       <div className="app">
+        <div className="history">
+          <div className="view-history">
+            {/* <button>View History</button> */}
+          </div>
+        </div>
         <div className="todo-container">
+          <h2 style={{textAlign:'center', fontSize:40}}>Create Your Todo List </h2>
           <div className="todo_sub">
             <form method='get' onSubmit={(e) => {
               e.preventDefault()
               if (!todoInput) return toast("Please Enter Something!");
               const listedTodo = {
                 id : Date.now(),
-                todo : todoInput
+                todo : todoInput,
+                isCompleted : false
               }
           
               const q = [...allTodo, listedTodo]
@@ -73,7 +80,7 @@ function App() {
                 <div className='td'>
                   <ul>
                     {allTodo.map((t) => {
-                      return <AddedTodo key={t.id} t={t} />
+                      return <AddedTodo key={t.id} t={t} allTodo={allTodo} setAllTodo={setAllTodo} toast={toast} />
                     })}
                   </ul>
                 </div>
@@ -87,7 +94,7 @@ function App() {
       <div>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar
         newestOnTop
         closeOnClick={false}
