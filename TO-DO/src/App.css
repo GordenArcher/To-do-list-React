@@ -1,42 +1,119 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app, .todo_sub, .todo-app, .todo_input, .todo-diaplay, .added-todo .empty,
+.view-todo, .view, .view .main-todo{
+  width: 100%;
+  height: 100%;
+}
+
+.todo-container {
+  width: 80%;
+  height: 100%;
+  margin: 80px auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding: 20px;
+}
+
+.todo_sub{
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 20;
+  padding: 10px;
+}
+
+.todo-app{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.todo_input input{
+  width: 100%;
+  height: 55px;
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 10px;
+  outline: none;
+  transition: all .3s ease;
+}
+
+.todo_input input:focus{
+  border: 1px solid hsl(240, 100%, 50%);
+}
+
+.add-todo{
+  position: relative;
+}
+
+.add-todo button {
+  width: 140px;
+  height: 50px;
+  color: hsl(240, 100%, 50%);
+  border: 1px solid hsl(240, 100%, 50%);
+  background: transparent;
+  font-size: 1rem;
+  transition: .3s ease;
+}
+
+.add-todo button:hover{
+  color: hsl(0, 0%, 100%);
+  background: hsl(240, 100%, 50%);
+}
+
+.added-todo .empty{
+  width: 60%;
+  margin: 60px auto;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.added-todo .empty p{
+  font-size: 2rem;
+  font-weight: 800;
+  color: hsla(240, 100%, 50%, 0.605);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.added-todo .empty img{
+  width: 100%;
+  height: 700px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.added-todo ul{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  padding: 10px;
 }
 
-.card {
-  padding: 2em;
+.view {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.view .main-todo h3{
+  font-size: 1.5rem;
+}
+
+.view .todo-actions{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.delete button{
+  border: 1px solid hsl(0, 100%, 50%);
+  color: hsl(0, 100%, 50%);
+  transition: .3s ease;
+}
+
+.delete button:hover{
+  background: hsl(0, 100%, 50%);
+  color: hsl(0, 0%, 100%);
 }

@@ -1,33 +1,105 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import AddedTodo from './component/addedTodo'
+import EmptyImg from './assets/images/empt.jpg'
+import { Slide, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [todoInput, setTodoInput] = useState("")
+  const [allTodo, setAllTodo] = useState([])
+  const notify = () => toast("Added Todo Sucessfully");
+
+  useEffect(() => {
+    const savedTodo = JSON.parse(localStorage.getItem("todoItem")) || []
+    // setAllTodo(savedTodo)
+  }, [])
 
   return (
     <>
+      <div className="app">
+        <div className="todo-container">
+          <div className="todo_sub">
+            <form method='get' onSubmit={(e) => {
+              e.preventDefault()
+              if (!todoInput) return toast("Please Enter Something!");
+              const listedTodo = {
+                id : Date.now(),
+                todo : todoInput
+              }
+          
+              const q = [...allTodo, listedTodo]
+              setAllTodo(q)
+              setTodoInput("")
+          
+              localStorage.setItem("todoItem", JSON.stringify(q))
+              notify()
+            }}>
+              <div className="todo-app">
+                <div className="todo_input">
+                  <input 
+                  type="text" 
+                  name='todoInput'
+                  id='todo-input'
+                  value={todoInput}
+                  onChange={(e) => {
+                    setTodoInput(e.target.value)
+                  }}
+                  placeholder='Enter Your Todo here '
+                  />
+                </div>
+
+                <div className="add-todo">
+                  <button>Add Todo</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div className="todo-diaplay">
+            <div className="added-todo">
+              {
+                allTodo == 0 ?
+                <div>
+                  <div className="empty">
+                    <p style={{textAlign:'center'}}>No Todo here</p>
+                    <img src={EmptyImg} alt="empty todo" />
+                  </div>
+                </div>
+
+                :
+
+                <div className='td'>
+                  <ul>
+                    {allTodo.map((t) => {
+                      return <AddedTodo key={t.id} t={t} />
+                    })}
+                  </ul>
+                </div>
+              }
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="light"
+        transition: Slide
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
