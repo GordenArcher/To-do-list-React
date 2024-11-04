@@ -63,7 +63,7 @@ export const Home = () => {
           </div>
         </div>
         <div className="todo-container">
-          <h2 style={{textAlign:'center', fontSize:40}}>Create Your Todo List </h2>
+          <h2>Create Your Todo List </h2>
           <div className="todo_sub">
             <form onSubmit={getTodo}>
               <div className="todo-app">

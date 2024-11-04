@@ -17,6 +17,11 @@
   padding: 20px;
 }
 
+.todo-container h2{
+  text-align:center;
+   font-size: 3rem;
+}
+
 .todo_sub{
   position: sticky;
   top: 0;
@@ -191,4 +196,121 @@
   padding: 10px;
   outline: none;
   transition: all .3s ease;
+}
+
+.dvie{
+  display: none;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .todo-container{
+    width: 90%;
+    padding: 5px;
+  }
+
+  .todo-container h2{
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
+
+  .todo_input input{
+    height: 45px;
+    font-size: 1rem;
+  }  
+
+  .add-todo button, .dvie button {
+    width: 80px;
+    height: 40px;
+    font-size: 1rem;
+
+  }  
+
+  .todo-app{
+    gap: 10px;
+  }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .todo-container{
+    width: 90%;
+    padding: 5px;
+  }
+
+  .todo-container h2{
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
+
+  .todo_input input{
+    height: 45px;
+    font-size: 1rem;
+  }  
+
+  .add-todo button, .dvie button {
+    width: 80px;
+    height: 40px;
+    font-size: .7rem;
+
+  }  
+
+  .todo-app{
+    gap: 10px;
+  }
+
+  .view .todo-actions{
+    display: none;
+  }
+
+  .dvie{
+    display: initial;
+  }
+
+  .dvie button {
+    height: 35px;
+    font-size: 1rem;
+  } 
+
+}
+
+@media screen and (max-width: 575px) {
+  .todo-container{
+    padding: 5px;
+  }
+
+  .todo-container h2{
+    font-size: 1.2rem;
+  }
+
+  .todo_input input{
+    height: 35px;
+    font-size: .8rem;
+  }  
+
+  .add-todo button, .dvie button {
+    width: 55px;
+    height: 35px;
+    font-size: .6rem;
+    padding: 5px;
+  }  
+
+  .dvie button {
+    width: 65px;
+    height: 35px;
+    font-size: .7rem;
+    padding: 5px;
+  } 
+
+  .view .todo-actions{
+    display: none;
+  }
+
+  .todo-app{
+    gap: 10px;
+  }
+
+  .dvie{
+    display: initial;
+  }
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import DeleteTask from './DeleteTask'
 import EditTask from './EditTask'
+import '../App.css'
 
 const AddedTodo = ({ t, setAllTodo, allTodo, toast }) => {
 
@@ -95,6 +96,10 @@ const AddedTodo = ({ t, setAllTodo, allTodo, toast }) => {
                             </div>
                         </>
                     }
+                </div>
+
+                <div className='dvie'>
+                    <button>View Task</button>
                 </div>
             </div>
         </div>
