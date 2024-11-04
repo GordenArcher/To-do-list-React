@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import DeleteTask from './DeleteTask'
 import EditTask from './EditTask'
 
@@ -6,13 +6,6 @@ const AddedTodo = ({ t, setAllTodo, allTodo, toast }) => {
 
     const [showDelete, setShowDel] = useState(false)
     const [showEdit, setShowEdit] = useState(false)
-
-    const date = new Date()
-    const h = date.getHours()
-    const m = date.getMinutes()
-
-    let am = "am"
-    let pm = "pm"
 
     const handleIsCompleted = () => {
         const cp = allTodo.map((comp) => {

@@ -1,0 +1,130 @@
+.login, .login_, .login-page, .login_left, .login_right, .login_left,
+.logs{
+    width: 100%;
+    height: 100%;
+}
+
+.login{
+    height: 100vh;
+}
+
+.login-page{
+    padding: 50px;
+}
+
+.login_{
+    display: flex;
+    gap: 20px;
+}
+
+.login_left, .login_right{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.login_left h2{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.d p{
+    font-size: 1rem;
+    color: hsl(0, 0%, 47%);
+}
+
+.login_right{
+    align-items: flex-start;
+}
+
+.login_inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.login_inputs .inp{
+    position: relative;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.login_inputs .inp input{
+    width: 100%;
+    height: 50px;
+    padding: 9px;
+    outline: none;
+    border: 1px solid hsl(0, 0%, 47%);
+    font-size: 1.2rem;
+    border-radius: 6px;
+}
+
+.login_inputs .inp label{
+    position: absolute;
+    margin-top: -25px;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.log_but{
+    margin-top: 70px;
+}
+
+.log_but button{
+    width: 130px;
+
+}
+
+
+.spin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loader {
+    text-align: center;
+    width: 20px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background:
+      linear-gradient(0deg ,rgba(255, 255, 255, 0.5) 30%,#ffffff00 0 70%,rgb(255, 255, 255) 0) 50%/8% 100%,
+      linear-gradient(90deg,rgba(255, 255, 255, 0.25) 30%,#ffffff00 0 70%,rgba(255, 255, 255, 0.75) 0) 50%/100% 8%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+  }
+  .loader::before,
+  .loader::after {
+     content: "";
+     grid-area: 1/1;
+     border-radius: 50%;
+     background: inherit;
+     opacity: 0.915;
+     transform: rotate(30deg);
+  }
+  .loader::after {
+     opacity: 0.83;
+     transform: rotate(60deg);
+  }
+  @keyframes l23 {
+    100% {transform: rotate(1turn)}
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
